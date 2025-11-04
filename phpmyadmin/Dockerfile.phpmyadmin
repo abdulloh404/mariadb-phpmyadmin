@@ -1,0 +1,16 @@
+FROM phpmyadmin:5
+
+ARG TZ=Asia/Bangkok
+ENV TZ=${TZ}
+
+COPY ./config.inc.php /etc/phpmyadmin/config.inc.php
+
+RUN { \
+    echo 'file_uploads = On'; \
+    echo 'memory_limit = 512M'; \
+    echo 'upload_max_filesize = ${UPLOAD_LIMIT}'; \
+    echo 'post_max_size = ${UPLOAD_LIMIT}'; \
+    echo 'max_execution_time = 300'; \
+    } > /usr/local/etc/php/conf.d/custom-uploads.ini
+
+EXPOSE 8088

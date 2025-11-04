@@ -1,0 +1,14 @@
+[mysqld]
+character-set-server = utf8mb4
+collation-server     = utf8mb4_general_ci
+default_time_zone    = SYSTEM
+
+innodb_buffer_pool_size = 256M
+innodb_log_file_size    = 128M
+innodb_flush_method     = O_DIRECT
+max_connections         = 200
+
+sql_mode = ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_ENGINE_SUBSTITUTION
+
+[client]
+default-character-set = utf8mb4
